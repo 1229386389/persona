@@ -28,7 +28,7 @@
         </div>
       </template>
       <div class="text item slider img-wrapper">
-        <tag-item v-for="(tag, index) in tags" :key="index" :name="tag"></tag-item>
+        <tag-item v-for="(tag, index) in tags" :key="index" :name="tag.name" :url="tag.url"></tag-item>
       </div>
     </el-card>
   </div>

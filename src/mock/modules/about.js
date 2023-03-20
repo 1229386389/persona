@@ -6,11 +6,11 @@ Mock.setup({
 Mock.mock('random/image', 'get', () => {
   return Mock.mock({
     msg: '请求图片成功',
-    code: 1,
+    code: 200,
     'item|10': [
       {
         id: '@id',
-        src: '@image'
+        src: '@dataImage'
       }
     ]
   })

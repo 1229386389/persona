@@ -1,6 +1,7 @@
 <template>
   <ul class="img-wrapper">
-    <li v-for="image in images" :key="image.id"><img :src="image.src" alt=""></li>
+    <!-- 图片进行懒加载 -->
+    <li v-for="image in images" :key="image.id"><img v-lazy="image.src" alt=""></li>
   </ul>
 </template>
 <script>

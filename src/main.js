@@ -14,11 +14,14 @@ import Myui from '@/assets/library'
 import print from 'vue3-print-nb'
 // 引入自己的图标库
 import '@/assets/iconfont/iconfont.css'
+import echarts from './utils/echarts'
 
 const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
+// 挂载echars全局变量
+app.config.globalProperties.$echarts = echarts
 app.use(store).use(router).use(ElementPlus, {
   locale: zhCn
 }).use(Myui).use(print).mount('#app')

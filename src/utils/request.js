@@ -10,8 +10,8 @@ instance.interceptors.request.use((config) => {
   // 获取用户信息，判断是否含有token
   const { profile } = store.state.user
   if (profile.token) {
-    // 设置token
-    config.headers.Authorization = `Bearer ${profile.token}`
+    // 设置token 因为使用天气api会冲突所以注释掉设置token
+    // config.headers.Authorization = `Bearer ${profile.token}`
   }
   return config
 }, (err) => {

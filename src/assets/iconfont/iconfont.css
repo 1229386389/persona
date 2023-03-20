@@ -2,9 +2,9 @@
   font-family: "iconfont"; /* Project id 3948958 */
   /* Color fonts */
   src: 
-       url('//at.alicdn.com/t/c/font_3948958_6960plrvm78.woff2?t=1678707224347') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3948958_6960plrvm78.woff?t=1678707224347') format('woff'),
-       url('//at.alicdn.com/t/c/font_3948958_6960plrvm78.ttf?t=1678707224347') format('truetype');
+       url('//at.alicdn.com/t/c/font_3948958_kngg6q11fnq.woff2?t=1679216473471') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3948958_kngg6q11fnq.woff?t=1679216473471') format('woff'),
+       url('//at.alicdn.com/t/c/font_3948958_kngg6q11fnq.ttf?t=1679216473471') format('truetype');
 }
 
 .iconfont {
@@ -13,6 +13,34 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xiangyoujiantou:before {
+  content: "\e60e";
+}
+
+.icon-yejing:before {
+  content: "\e60d";
+}
+
+.icon-rila:before {
+  content: "\e609";
+}
+
+.icon-richu:before {
+  content: "\e60a";
+}
+
+.icon-yuela:before {
+  content: "\e60b";
+}
+
+.icon-yuechu:before {
+  content: "\e60c";
+}
+
+.icon-xiangzuojiantou:before {
+  content: "\e608";
 }
 
 .icon-github-fill:before {

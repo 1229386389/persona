@@ -5,15 +5,17 @@
         <el-divider>
     </el-divider>
      <aside-item class="time"></aside-item>
+    <Myfooter></Myfooter>
   </div>
 </template>
 <script>
 import asideItem from './Aside-item.vue'
 import dayjs from 'dayjs'
 import { ref } from 'vue'
+import Myfooter from './footer.vue'
 export default {
   name: 'MyAside',
-  components: { asideItem },
+  components: { asideItem, Myfooter },
   setup () {
     const time = ref(new Date())
     return { time, dayjs }

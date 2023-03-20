@@ -1,4 +1,4 @@
-import defaultImg from '@/assets/menu.png'
+import defaultImg from '@/assets/image/1.jpg'
 import { useIntersectionObserver } from '@vueuse/core'
 const lazy = { // 图片懒加载指令
   mounted (el, binding) {

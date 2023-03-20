@@ -1,3 +1,4 @@
+import { ElMessage } from 'element-plus'
 // 用户模块
 export default {
   namespaced: true,
@@ -5,14 +6,18 @@ export default {
     return {
       // 用户信息
       profile: {
+        password: '',
         id: '',
         account: '',
         nickname: '',
         avatar: '',
-        mobile: '',
+        city: {
+        },
+        sex: '',
+        info: '',
         token: ''
       },
-      redirectUrl: '/'// 回跳地址
+      redirectUrl: '/' // 回跳地址
     }
   },
   mutations: {
@@ -22,6 +27,11 @@ export default {
     },
     setRedirectUrl (state, url) {
       state.redirectUrl = url
+    },
+    loginout (state) {
+      // 清空信息
+      state.profile = { }
+      ElMessage('已退出登陆')
     }
   }
 }
