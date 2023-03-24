@@ -37,9 +37,9 @@ export default {
 
 <style scoped lang="less">
 .app-footer {
-  overflow: hidden;
+  //overflow: hidden;
   padding-top: 0px;
-
+  //height: 1000px;
   .contact {
     background: #fff;
 

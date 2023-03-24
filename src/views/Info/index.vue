@@ -38,21 +38,39 @@
           <el-input type="textarea" v-model="formLabelAlign.password" />
         </el-form-item>
         <el-form-item label="所在地区">
-          <CitySerach type="persona"  @cityChange="formLabelAlign.city = $event">
+          <CitySerach type="persona" @cityChange="formLabelAlign.city = $event">
           </CitySerach>
         </el-form-item>
         <el-form-item label="简介">
           <el-input type="textarea" v-model="formLabelAlign.info" />
         </el-form-item>
+        <el-form-item label="头像上传剪切">
+          <img-upload @uploading="ImgShow" @removeImg="img = ''"></img-upload>
+        </el-form-item>
       </el-form>
+      <div>
+      <span v-if="img">
+    裁剪后图片
+    <img  :src="img" alt="错误">
+    裁剪后base/url
+     <el-input
+    v-model="img"
+    autosize
+    type="textarea"
+    placeholder="裁剪图片后生成的base64/Blob地址,因为用户信息是使用本地数据所以无法更改用户头像(腾讯云os存储太贵了"
+      />
+      </span>
+      </div>
     </el-card>
   </div>
 </template>
 <script>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import CitySerach from '@/views/table/components/search.vue'
 import { getAllUser } from '@/api/user.js'
 import { useStore } from 'vuex'
+import imgUpload from './components/imgUpload.vue'
+import { ElMessage } from 'element-plus'
 const sameNameCheck = async (rule, value, callback) => { // 检测昵称或者id是否相同
   const { users } = await getAllUser()
   const result = users.find((item) => {
@@ -88,7 +106,7 @@ const sameAccountCheck = async (rule, value, callback) => { // 检测昵称或�
 }
 export default {
   name: 'PersonalCenter',
-  components: { CitySerach },
+  components: { CitySerach, imgUpload },
   setup () {
     const FormRules = reactive({ // 校验规则
       nickname: [{ required: true, message: '不能为空', trigger: 'blur' },
@@ -98,9 +116,14 @@ export default {
       account: [{ required: true, message: '不能为空', trigger: 'blur' },
         { validator: sameAccountCheck, trigger: 'blur' }]
     })
+    const img = ref('') // 裁剪好的图片
+    const ImgShow = (data) => { // cropper裁剪图片回传
+      img.value = data
+      ElMessage({ message: '上传成功', type: 'success' })
+    }
     const store = useStore()
     const formLabelAlign = reactive(store.state.user.profile)
-    return { formLabelAlign, FormRules }
+    return { formLabelAlign, FormRules, ImgShow, img }
   }
 }
 </script>

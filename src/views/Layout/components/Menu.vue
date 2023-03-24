@@ -1,6 +1,6 @@
 <template>
-  <el-menu class="el-menu-vertical-demo menu" :collapse="isCollapse" router collapse-transition >
-  <el-button type="primary"  :icon="isCollapse ? 'CirclePlusFilled':'RemoveFilled'" @click="changeShow" class="change"/>
+  <el-menu class="el-menu-vertical-demo menu" :collapse="isCollapse" router >
+  <el-button type="primary"   :icon="isCollapse ? 'CirclePlusFilled':'RemoveFilled'" @click="changeShow" class="change"/>
    <!-- 使用路由动态生成导航栏 -->
    <el-menu-item v-for="(route,index) in menuList" :key="index" :index="route.path" class="fade">
       <el-icon size='20'><component :is="route.meta.icon"/></el-icon>
@@ -39,10 +39,11 @@ export default {
 <style lang="less" scoped>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   //width: 200px;
-  height: 1000px
+ height: auto;
 }
 .menu {
-  height: inherit;
+  //height: 1000px;
+ // position: fixed;
   .change {
    height: 20px;
    width: 100%;

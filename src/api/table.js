@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 // 和风天气key
-const key = 'b4edd42d3e7e4387b86d2c508b8f6c80'
+const key = ''
 // 查询天气
 export const findWeather = ({ location = '101010100', lang = 'zh' }) => {
   return request('https://devapi.qweather.com/v7/weather/7d', 'get', { location, key })
